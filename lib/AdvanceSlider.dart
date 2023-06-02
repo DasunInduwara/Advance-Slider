@@ -1,4 +1,50 @@
+library advance_slider;
+
 import 'package:flutter/material.dart';
+
+class RhombusPainter extends CustomPainter {
+  final Color color;
+
+  RhombusPainter({required this.color});
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final paint = Paint()
+      ..color = color
+      ..style = PaintingStyle.fill;
+
+    final path = Path()
+      ..moveTo(size.width / 2, 0)
+      ..lineTo(size.width, size.height / 2)
+      ..lineTo(size.width / 2, size.height)
+      ..lineTo(0, size.height / 2)
+      ..close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) {
+    return false;
+  }
+}
+
+class RhombusWidget extends StatelessWidget {
+  final double width;
+  final double height;
+  final Color color;
+
+  RhombusWidget(
+      {required this.width, required this.height, required this.color});
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomPaint(
+      painter: RhombusPainter(color: color),
+      size: Size(width, height),
+    );
+  }
+}
 
 class RhombusSlider extends StatefulWidget {
   RhombusSlider(
@@ -90,5 +136,61 @@ class _CustomThumbShape extends SliderComponentShape {
     path.lineTo(rect.center.dx, rect.bottom);
     path.close();
     return path;
+  }
+}
+
+class AdvanceSlider extends StatefulWidget {
+  AdvanceSlider(
+      {Key? key,
+      required this.min,
+      required this.max,
+      required this.divisions,
+      this.onChanged})
+      : super(key: key);
+
+  double min;
+  double max;
+  int divisions;
+  final ValueChanged<double>? onChanged;
+
+  @override
+  State<AdvanceSlider> createState() => _AdvanceSliderState();
+}
+
+class _AdvanceSliderState extends State<AdvanceSlider> {
+  double _value = 0.0;
+
+  void updateSliderValue(double value) {
+    setState(() {
+      _value = value;
+    });
+    widget.onChanged!(
+        value); // Call the onChanged callback provided by the parent widget
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Positioned.fill(
+          child: Padding(
+            padding: const EdgeInsets.only(left: 10, right: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: List.generate(
+                  5,
+                  (index) =>
+                      RhombusWidget(width: 12, height: 12, color: Colors.blue)),
+            ),
+          ),
+        ),
+        RhombusSlider(
+          divisions: 100,
+          max: 100,
+          min: 0.0,
+          onChanged: updateSliderValue,
+        ),
+      ],
+    );
   }
 }
