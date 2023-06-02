@@ -1,7 +1,7 @@
-name: rombus_slider_pkg
+name: advance_slider
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
+homepage: https://github.com/DasunInduwara/Advance-Slider.git
 
 environment:
   sdk: '>=2.19.4 <3.0.0'
