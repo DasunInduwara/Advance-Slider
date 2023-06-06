@@ -139,18 +139,21 @@ class _CustomThumbShape extends SliderComponentShape {
   }
 }
 
+// main widget...
 class AdvanceSlider extends StatefulWidget {
   AdvanceSlider(
-      {Key? key,
-      required this.min,
+      {required this.min,
       required this.max,
-      required this.divisions,
-      this.onChanged})
-      : super(key: key);
+      // this.divisions = 100,
+      this.divderCount= 5,
+
+      this.onChanged});
 
   double min;
   double max;
-  int divisions;
+  // int divisions;
+  int divderCount ;
+  bool divders = true;
   final ValueChanged<double>? onChanged;
 
   @override
@@ -172,22 +175,25 @@ class _AdvanceSliderState extends State<AdvanceSlider> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Positioned.fill(
+        Visibility(
+          visible: widget.divders,
+          child: Positioned.fill(
           child: Padding(
             padding: const EdgeInsets.only(left: 10, right: 10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: List.generate(
-                  5,
+                  widget.divderCount,
                   (index) =>
                       RhombusWidget(width: 12, height: 12, color: Colors.blue)),
             ),
           ),
-        ),
+        ))
+        ,
         RhombusSlider(
-          divisions: 100,
-          max: 100,
-          min: 0.0,
+          divisions: int.parse(widget.max.toString()) ,
+          max: widget.max,
+          min: widget.min,
           onChanged: updateSliderValue,
         ),
       ],
