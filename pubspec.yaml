@@ -1,10 +1,10 @@
-name: advance_slider
-description: A new Flutter package project.
+name: flutter_advance_slider
+description: Create sleek and interactive sliders in your Flutter apps with Advance Slider. Customize track colors, divisions, and thumb shape. Display rhombus-shaped markers at intervals. Easily build engaging user interfaces for value selection.
 version: 0.0.1
 homepage: https://github.com/DasunInduwara/Advance-Slider.git
 
 environment:
-  sdk: '>=2.19.4 <3.0.0'
+  sdk: '>=2.19.4 <4.0.0'
   flutter: ">=1.17.0"
 
 dependencies:

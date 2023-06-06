@@ -153,8 +153,8 @@ class _CustomRhombusThumbShape extends SliderComponentShape {
 }
 
 // main widget...
-class AdvanceSlider extends StatefulWidget {
-  AdvanceSlider({
+class FlutterAdvanceSlider extends StatefulWidget {
+  FlutterAdvanceSlider({
     required this.min,
     required this.max,
     this.divderCount = 5,
@@ -179,10 +179,10 @@ class AdvanceSlider extends StatefulWidget {
   static void _defaultOnChanged(double value) {}
 
   @override
-  State<AdvanceSlider> createState() => _AdvanceSliderState();
+  State<FlutterAdvanceSlider> createState() => _FlutterAdvanceSliderState();
 }
 
-class _AdvanceSliderState extends State<AdvanceSlider> {
+class _FlutterAdvanceSliderState extends State<FlutterAdvanceSlider> {
   double _value = 0.0;
 
   void updateSliderValue(double value) {

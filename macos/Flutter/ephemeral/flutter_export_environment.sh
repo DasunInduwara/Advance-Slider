@@ -1,7 +1,7 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=C:\src\flutter"
-export "FLUTTER_APPLICATION_PATH=E:\Projects\Flutter Projects\Packages\rombus_slider_pkg"
+export "FLUTTER_ROOT=/Users/dasun/Developer/flutter"
+export "FLUTTER_APPLICATION_PATH=/Users/dasun/Projects/Flutter Pub/Advance-Slider"
 export "COCOAPODS_PARALLEL_CODE_SIGN=true"
 export "FLUTTER_BUILD_DIR=build"
 export "FLUTTER_BUILD_NAME=0.0.1"

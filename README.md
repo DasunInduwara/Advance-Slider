@@ -11,29 +11,27 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages).
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+# Advance Slider
+
+Advance Slider is a versatile Flutter package that provides an advanced slider widget with customizable features. With this package, you can easily integrate a sleek and interactive slider component into your Flutter applications. Customize the appearance with different track colors, divisions, and even a custom thumb shape. The package also includes an option to display rhombus-shaped markers at specified intervals along the slider. Whether you need a simple slider or a more customized one, Advance Slider makes it easy to create engaging user interfaces. Give your users a seamless and intuitive way to select values with this powerful Flutter package.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+- Advanced slider widget with customizable features
+- Customizable track colors, divisions, and thumb shape
+- Option to display rhombus-shaped markers at specified intervals
+- Easy integration into Flutter applications
 
-## Getting started
+## Getting Started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+To start using the Advance Slider package, you need to add it as a dependency in your `pubspec.yaml` file:
 
-## Usage
+```yaml
+dependencies:
+  advance_slider: ^1.0.0
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
 ```
+For detailed instructions on how to add dependencies to your Flutter project, refer to the Flutter documentation.
 
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+License
+This package is released under the MIT License.
