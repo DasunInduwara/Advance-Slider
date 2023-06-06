@@ -147,14 +147,21 @@ class AdvanceSlider extends StatefulWidget {
       // this.divisions = 100,
       this.divderCount= 5,
 
-      this.onChanged});
+      this.onChanged = _defaultOnChanged,});
 
   double min;
   double max;
   // int divisions;
   int divderCount ;
   bool divders = true;
-  final ValueChanged<double>? onChanged;
+  final ValueChanged<double> onChanged;
+
+
+    static void _defaultOnChanged(double value) {
+    // Default implementation for onChanged
+    // You can replace this with your desired logic or leave it empty
+    print('Slider value changed: $value');
+  }
 
   @override
   State<AdvanceSlider> createState() => _AdvanceSliderState();
