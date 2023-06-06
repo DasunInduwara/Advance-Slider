@@ -191,7 +191,7 @@ class _AdvanceSliderState extends State<AdvanceSlider> {
         ))
         ,
         RhombusSlider(
-          divisions: int.parse(widget.max.toString()) ,
+          divisions: double.parse(widget.max.toString()).toInt() ,
           max: widget.max,
           min: widget.min,
           onChanged: updateSliderValue,
