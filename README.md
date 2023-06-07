@@ -15,7 +15,7 @@ and the Flutter guide for
 
 Advance Slider is a versatile Flutter package that provides an advanced slider widget with customizable features. With this package, you can easily integrate a sleek and interactive slider component into your Flutter applications. Customize the appearance with different track colors, divisions, and even a custom thumb shape. The package also includes an option to display rhombus-shaped markers at specified intervals along the slider. Whether you need a simple slider or a more customized one, Advance Slider makes it easy to create engaging user interfaces. Give your users a seamless and intuitive way to select values with this powerful Flutter package.
 
-![Advance Slider Example](https://github.com/DasunInduwara/Advance-Slider/blob/main/assets/screenshot.png)
+<img src="https://github.com/DasunInduwara/Advance-Slider/blob/main/assets/screenshot.png" width="400">
 
 ## Features
 
