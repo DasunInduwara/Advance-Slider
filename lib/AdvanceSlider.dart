@@ -212,7 +212,9 @@ class _FlutterAdvanceSliderState extends State<FlutterAdvanceSlider> {
             visible: widget.displayDivders,
             child: Positioned.fill(
               child: Padding(
-                padding: const EdgeInsets.only(left: 10, right: 10),
+                padding: widget.showCustomThumb
+                    ? const EdgeInsets.only(left: 10, right: 10)
+                    : EdgeInsets.zero,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: widget.customIcon == null
