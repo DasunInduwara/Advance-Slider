@@ -50,6 +50,7 @@ class RhombusSlider extends StatefulWidget {
   RhombusSlider(
       {required this.min,
       required this.max,
+      required this.showLable,
       required this.divisions,
       required this.customThumb,
       required this.activeTrackColor,
@@ -58,6 +59,7 @@ class RhombusSlider extends StatefulWidget {
 
   double min;
   double max;
+  bool showLable;
   int divisions;
   bool customThumb;
   Color activeTrackColor;
@@ -96,14 +98,21 @@ class _RhombusSliderState extends State<RhombusSlider> {
               inactiveTrackColor: Colors.grey.withOpacity(0.3),
               overlayShape: const RoundSliderOverlayShape(overlayRadius: 14.0),
             ),
-      child: Slider(
-        value: _value,
-        min: widget.min,
-        max: widget.max,
-        divisions: widget.divisions,
-        label: _value.round().toString(),
-        onChanged: updateSliderValue,
-      ),
+      child: widget.showLable
+          ? Slider(
+              value: _value,
+              min: widget.min,
+              max: widget.max,
+              divisions: widget.divisions,
+              label: _value.round().toString(),
+              onChanged: updateSliderValue,
+            )
+          : Slider(
+              value: _value,
+              min: widget.min,
+              max: widget.max,
+              onChanged: updateSliderValue,
+            ),
     );
   }
 }
@@ -157,10 +166,11 @@ class FlutterAdvanceSlider extends StatefulWidget {
   FlutterAdvanceSlider({
     required this.min,
     required this.max,
+    this.showLable = true,
     this.divderCount = 5,
-    this.divders = true,
+    this.displayDivders = true,
     this.customIcon,
-    this.customThumb = true,
+    this.showCustomThumb = true,
     this.activeTrackColor = Colors.blue,
     this.inactiveTrackColor = const Color.fromARGB(255, 207, 207, 207),
     this.onChanged = _defaultOnChanged,
@@ -168,10 +178,11 @@ class FlutterAdvanceSlider extends StatefulWidget {
 
   double min;
   double max;
+  bool showLable;
   int divderCount;
-  bool divders;
+  bool displayDivders;
   Icon? customIcon;
-  bool customThumb;
+  bool showCustomThumb;
   Color activeTrackColor;
   Color inactiveTrackColor;
   final ValueChanged<double> onChanged;
@@ -198,7 +209,7 @@ class _FlutterAdvanceSliderState extends State<FlutterAdvanceSlider> {
     return Stack(
       children: [
         Visibility(
-            visible: widget.divders,
+            visible: widget.displayDivders,
             child: Positioned.fill(
               child: Padding(
                 padding: const EdgeInsets.only(left: 10, right: 10),
@@ -218,7 +229,8 @@ class _FlutterAdvanceSliderState extends State<FlutterAdvanceSlider> {
           divisions: double.parse(widget.max.toString()).toInt(),
           max: widget.max,
           min: widget.min,
-          customThumb: widget.customThumb,
+          showLable: widget.showLable,
+          customThumb: widget.showCustomThumb,
           activeTrackColor: widget.activeTrackColor,
           inactiveTrackColor: widget.inactiveTrackColor,
           onChanged: updateSliderValue,

@@ -1,6 +1,6 @@
 name: flutter_advance_slider
-description: Create sleek and interactive sliders in your Flutter apps with Advance Slider. Customize track colors, divisions, and thumb shape. Display rhombus-shaped markers at intervals. Easily build engaging user interfaces for value selection.
-version: 0.0.1
+description: Create sleek and interactive sliders in your Flutter apps with Flutter Advance Slider. Customize track colors, divisions, and thumb shape. Display rhombus-shaped markers at intervals. Easily build engaging user interfaces for value selection.
+version: 1.0.0
 homepage: https://github.com/DasunInduwara/Advance-Slider.git
 
 environment:
