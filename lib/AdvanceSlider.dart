@@ -2,9 +2,11 @@ library advance_slider;
 
 import 'package:flutter/material.dart';
 
+/// A custom painter that draws a rhombus shape with the specified color.
 class RhombusPainter extends CustomPainter {
   final Color color;
 
+  /// Creates a [RhombusPainter] with the given [color].
   RhombusPainter({required this.color});
 
   @override
@@ -29,13 +31,14 @@ class RhombusPainter extends CustomPainter {
   }
 }
 
+/// A widget that displays a rhombus shape with the specified width, height, and color.
 class RhombusWidget extends StatelessWidget {
   final double width;
   final double height;
   final Color color;
 
-  RhombusWidget(
-      {required this.width, required this.height, required this.color});
+  /// Creates a [RhombusWidget] with the given [width], [height], and [color].
+  RhombusWidget({required this.width, required this.height, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -46,24 +49,42 @@ class RhombusWidget extends StatelessWidget {
   }
 }
 
+/// A slider widget that displays rhombus shapes as the thumb.
 class RhombusSlider extends StatefulWidget {
-  RhombusSlider(
-      {required this.min,
-      required this.max,
-      required this.showLable,
-      required this.divisions,
-      required this.customThumb,
-      required this.activeTrackColor,
-      required this.inactiveTrackColor,
-      required this.onChanged});
+  const RhombusSlider({
+    Key? key,
+    required this.min,
+    required this.max,
+    required this.showLable,
+    required this.divisions,
+    required this.customThumb,
+    required this.activeTrackColor,
+    required this.inactiveTrackColor,
+    required this.onChanged,
+  }) : super(key: key);
 
-  double min;
-  double max;
-  bool showLable;
-  int divisions;
-  bool customThumb;
-  Color activeTrackColor;
-  Color inactiveTrackColor;
+  /// The minimum value of the slider.
+  final double min;
+
+  /// The maximum value of the slider.
+  final double max;
+
+  /// Whether to show the value label on the slider.
+  final bool showLable;
+
+  /// The number of discrete divisions on the slider track.
+  final int divisions;
+
+  /// Whether to use a custom rhombus shape for the thumb.
+  final bool customThumb;
+
+  /// The color of the active track.
+  final Color activeTrackColor;
+
+  /// The color of the inactive track.
+  final Color inactiveTrackColor;
+
+  /// Called when the value of the slider changes.
   final ValueChanged<double> onChanged;
 
   @override
@@ -77,8 +98,7 @@ class _RhombusSliderState extends State<RhombusSlider> {
     setState(() {
       _value = value;
     });
-    widget.onChanged(
-        value); // Call the onChanged callback provided by the parent widget
+    widget.onChanged(value); // Call the onChanged callback provided by the parent widget
   }
 
   @override
@@ -117,6 +137,7 @@ class _RhombusSliderState extends State<RhombusSlider> {
   }
 }
 
+/// A custom thumb shape for the slider that displays a rhombus shape.
 class _CustomRhombusThumbShape extends SliderComponentShape {
   @override
   Size getPreferredSize(bool isEnabled, bool isDiscrete) {
@@ -161,9 +182,10 @@ class _CustomRhombusThumbShape extends SliderComponentShape {
   }
 }
 
-// main widget...
+/// A more advanced slider widget that combines the rhombus slider and the rhombus dividers.
 class FlutterAdvanceSlider extends StatefulWidget {
-  FlutterAdvanceSlider({
+  const FlutterAdvanceSlider({
+    Key? key,
     required this.min,
     required this.max,
     this.showLable = true,
@@ -174,17 +196,36 @@ class FlutterAdvanceSlider extends StatefulWidget {
     this.activeTrackColor = Colors.blue,
     this.inactiveTrackColor = const Color.fromARGB(255, 207, 207, 207),
     this.onChanged = _defaultOnChanged,
-  });
+  }) : super(key: key);
 
-  double min;
-  double max;
-  bool showLable;
-  int divderCount;
-  bool displayDivders;
-  Icon? customIcon;
-  bool showCustomThumb;
-  Color activeTrackColor;
-  Color inactiveTrackColor;
+  /// The minimum value of the slider.
+  final double min;
+
+  /// The maximum value of the slider.
+  final double max;
+
+  /// Whether to show the value label on the slider.
+  final bool showLable;
+
+  /// The number of dividers to display.
+  final int divderCount;
+
+  /// Whether to display the dividers.
+  final bool displayDivders;
+
+  /// The custom icon to use for dividers (if provided).
+  final Icon? customIcon;
+
+  /// Whether to show a custom rhombus thumb.
+  final bool showCustomThumb;
+
+  /// The color of the active track.
+  final Color activeTrackColor;
+
+  /// The color of the inactive track.
+  final Color inactiveTrackColor;
+
+  /// Called when the value of the slider changes.
   final ValueChanged<double> onChanged;
 
   static void _defaultOnChanged(double value) {}
@@ -200,8 +241,7 @@ class _FlutterAdvanceSliderState extends State<FlutterAdvanceSlider> {
     setState(() {
       _value = value;
     });
-    widget.onChanged(
-        value); // Call the onChanged callback provided by the parent widget
+    widget.onChanged(value); // Call the onChanged callback provided by the parent widget
   }
 
   @override
