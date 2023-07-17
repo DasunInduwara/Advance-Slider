@@ -107,15 +107,15 @@ class _RhombusSliderState extends State<RhombusSlider> {
       data: widget.customThumb
           ? SliderThemeData(
               trackHeight: 4.0,
-              activeTrackColor: Colors.blue,
-              inactiveTrackColor: Colors.grey.withOpacity(0.3),
+              activeTrackColor: widget.activeTrackColor,
+              inactiveTrackColor: widget.inactiveTrackColor,
               thumbShape: _CustomRhombusThumbShape(),
               overlayShape: const RoundSliderOverlayShape(overlayRadius: 14.0),
             )
           : SliderThemeData(
               trackHeight: 4.0,
-              activeTrackColor: Colors.blue,
-              inactiveTrackColor: Colors.grey.withOpacity(0.3),
+              activeTrackColor: widget.activeTrackColor,
+              inactiveTrackColor: widget.inactiveTrackColor,
               overlayShape: const RoundSliderOverlayShape(overlayRadius: 14.0),
             ),
       child: widget.showLable

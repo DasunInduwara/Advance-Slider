@@ -1,2 +1,2 @@
-## 1.1.0
-stable version released
+## 1.2.0
+Bug Fixed
